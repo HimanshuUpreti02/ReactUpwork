@@ -32,11 +32,11 @@ const SignUp = () => {
       return;
     }
 
+    navigate("/")
     try {
       const {user} = await createAuthUserWithEmailAndPassword(email , password);
       await createUserDocFromAuth(user , {displayName});
       resetFormFields();
-      navigate("/home")
       
 
     } catch (error) {

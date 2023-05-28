@@ -3,6 +3,7 @@ import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 import Countries from '../utils';
 import "../formInput.styles.scss";
+import "../resume.styles.scss"
 import { getStates } from 'country-state-picker';
 import { Link, useNavigate } from 'react-router-dom';
 import { uid } from "uid"
@@ -25,11 +26,11 @@ const NameDetails = () => {
     // },[])
 
     const [showResume, setShowResume] = useState(false);
-    const [htmlData , setHtmlData]= useState("");
-    const [countries , setCountries] = useState(Countries);
+    const [countries, setCountries] = useState(Countries);
 
-
+    const [final , setFinal] = useState(false);
     const [isBasic, setIsBasic] = useState(true);
+    const [resumeDesc, setResumeDesc] = useState("");
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [Country, setCountry] = useState("");
@@ -41,6 +42,7 @@ const NameDetails = () => {
     const [email, setEmail] = useState("");
     const [job, setJob] = useState("");
     const [highestEducation, setHighestEducation] = useState("");
+    const [showTier, setShowTier] = useState(false);
 
 
     const [isEducation1, setIsEducation1] = useState(false);
@@ -91,6 +93,7 @@ const NameDetails = () => {
     const [gender, setGender] = useState("");
 
     const [id, setId] = useState(uid());
+    const [flag, setFlag] = useState(0);
 
 
     const [isExtraDetails, setIsExtraDetails] = useState(false);
@@ -101,15 +104,148 @@ const NameDetails = () => {
     const [carrerBuilderPass, setCarrerBuilderPass] = useState("");
     const [ZipRecruiterPass, setZipRecruiterPass] = useState("");
 
+    const gobackfromresume = () => {
+        setShowResume(false);
+        setIsExtraDetails(true);
+    }
+
+    const goToLast = ()=>{
+        setShowResume(false);
+        setFinal(true);
+    }
 
     const PdfJSX = () => {
         return (
             <>
-                
+                <div class="container">
+                    <div class="header">
+                        <div class="full-name">
+                            <span class="first-name">{firstName} {lastName}</span>
+                            {/* <span class="last-name">Doe</span> */}
+                        </div>
+
+                        <div>
+                            <p>{resumeDesc}</p>
+                        </div>
+                        <div class="contact-info">
+                            <span class="email">Email:  </span>
+                            <span class="email-val">{email}</span>
+                            {/* <span class="separator"></span> */}
+                            {/* <span class="phone">Phone: </span>
+                            <span class="phone-val">{number}</span> */}
+                        </div>
+
+                        <div class="contact-info">
+                            <span class="email-val">{Country}, </span>
+                            <span class="email-val">{state}</span>
+                            <span class="separator"></span>
+                            <span class="phone">Phone: </span>
+                            <span class="phone-val">{number}</span>
+                        </div>
+
+                        {/* <div class="about">
+                            <span class="position">Front-End Developer </span>
+                            <span class="desc">
+                                I am a front-end developer with more than 3 years of experience writing html, css, and js. I'm motivated, result-focused and seeking a successful team-oriented company with opportunity to grow.
+                            </span>
+                        </div> */}
+                    </div>
+                    <div class="details">
+
+                        <div class="section">
+                            <div class="section__title">Education</div>
+                            <div class="section__list">
+                                <div class="section__list-item">
+                                    <div class="left">
+                                        <div class="name">{university}</div>
+                                        <div class="addr">{Degree} - {majors}</div>
+                                        <div class="duration">{startDate1} - {endDate1}</div>
+                                    </div>
+                                    <div class="right">
+                                        <div class="name">GPA</div>
+                                        <div class="desc">{gpa}</div>
+                                    </div>
+                                </div>
+                                {showEducation2 && <div class="section__list-item">
+                                    <div class="left">
+                                        <div class="name">{university2}</div>
+                                        <div class="addr">{Degree2} - {majors2}</div>
+                                        <div class="duration">{startDate2} - {endDate2}</div>
+                                    </div>
+                                    <div class="right">
+                                        <div class="name">GPA</div>
+                                        <div class="desc">{gpa2}</div>
+                                    </div>
+                                </div>}
+
+                            </div>
+
+                        </div>
+                        <div class="section">
+                            <div class="section__title">Experience</div>
+                            <div class="section__list">
+                                <div class="section__list-item">
+                                    <div class="left">
+                                        <div class="name">{company1} - {position1}</div>
+                                        <div class="addr">{location1}</div>
+                                        <div class="desc">{description1}</div>
+                                    </div>
+                                    <div class="right">
+                                        <div>DURATION</div>
+                                        <div class="duration">{workStartDate1} - {workEndDate1}</div>
+
+                                    </div>
+                                </div>
+                                {showWork2 && <div class="section__list-item">
+                                    <div class="left">
+                                        <div class="name">Akount</div>
+                                        <div class="addr">San Monica, CA</div>
+                                        <div class="duration">Jan 2011 - Feb 2015</div>
+                                    </div>
+                                    <div class="right">
+                                        <div class="name">Fr developer</div>
+                                        <div class="desc">did This and that</div>
+                                    </div>
+                                </div>}
+
+                            </div>
+                        </div>
+
+                        {/* <div class="section">
+                            <div class="section__title">Projects</div>
+                            <div class="section__list">
+                                <div class="section__list-item">
+                                    <div class="name">DSP</div>
+                                    <div class="text">I am a front-end developer with more than 3 years of experience writing html, css, and js. I'm motivated, result-focused and seeking a successful team-oriented company with opportunity to grow.</div>
+                                </div>
+
+                                <div class="section__list-item">
+                                    <div class="name">DSP</div>
+                                    <div class="text">I am a front-end developer with more than 3 years of experience writing html, css, and js. I'm motivated, result-focused and seeking a successful team-oriented company with opportunity to grow. <a href="/login">link</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> */}
+
+
+
+                    </div>
+
+                </div>
+                {/* <button onClick={gobackfromresume}>prev</button> */}
+                <div className='d-flex justify-content-center'>
+
+                <button className='btn btn-secondary my-3 mx-5' onClick={gobackfromresume}>Previous</button>
+                <button className='btn btn-secondary my-3 mx-5' onClick={goToLast}>Next</button>
+                </div>
+
             </>
+
         )
     }
 
+
+    console.log(isEducation2)
     const handleFirstName = (e) => {
         setFirstName(e.target.value);
     }
@@ -179,6 +315,7 @@ const NameDetails = () => {
 
     const handleAddEducation = () => {
         setIsEducation2(true);
+        showEducation2(true);
         setIsSave(false);
     }
 
@@ -373,7 +510,15 @@ const NameDetails = () => {
         setWorkEndDate2(e.target.value)
     }
 
+    const handleResumeDesc = (e) => {
+        setResumeDesc(e.target.value)
+    }
+
     const writeToDatabase = () => {
+
+        setIsExtraDetails(false);
+        setShowResume(true);
+        const printElement = ReactDOMServer.renderToString(PdfJSX());
 
         if (!auth.currentUser) {
             // const uidd = uid();
@@ -422,13 +567,15 @@ const NameDetails = () => {
                 gender: gender,
                 city: city,
                 email: email,
+                resumeDesc: resumeDesc,
                 linkedinEmail: linkedinEmail,
                 linkedinPass: linkedinPass,
                 carrerBuilderEmail: carrerBuilderEmail,
                 carrerBuilderPass: carrerBuilderPass,
                 ZipRecruiterEmail: ZipRecruiterEmail,
                 ZipRecruiterPass: ZipRecruiterPass,
-                htmlData : htmlData,
+                htmlData: printElement,
+                flag: flag,
                 uidd: id,
             })
         } else {
@@ -450,6 +597,7 @@ const NameDetails = () => {
                 Degree2: Degree2,
                 majors2: majors2,
                 gpa2: gpa2,
+                resumeDesc: resumeDesc,
                 startDate2: startDate2.toString(),
                 endDate2: endDate2.toString(),
                 workExperience: workExp,
@@ -482,15 +630,12 @@ const NameDetails = () => {
                 carrerBuilderPass: carrerBuilderPass,
                 ZipRecruiterEmail: ZipRecruiterEmail,
                 ZipRecruiterPass: ZipRecruiterPass,
+                htmlData: printElement,
+                flag: flag,
                 uidd: id,
             })
         }
-        setIsExtraDetails(false);
-        setShowResume(true);
-        const printElement = ReactDOMServer.renderToString(PdfJSX());
 
-        setHtmlData(printElement)
-        console.log(htmlData)
         // navigate("/resume")
 
     }
@@ -498,7 +643,7 @@ const NameDetails = () => {
     const goToExtraDetails = () => {
         setIsGeneral2(false);
         setIsExtraDetails(true);
-        
+
     }
 
     const handleLinkedinMail = (e) => {
@@ -532,6 +677,15 @@ const NameDetails = () => {
         setHighestEducation(e.target.value);
     }
 
+    const goTotier = () => {
+        setIsExtraDetails(false);
+        setShowResume(true);
+    }
+
+    const goBackToExtra = () => {
+        setIsExtraDetails(true);
+    }
+
 
     return (
         <>
@@ -543,11 +697,11 @@ const NameDetails = () => {
                         <FloatingLabel
                             controlId="floatingInput"
                             label="First Name"
-                            className="mb-3 w-50 mx-3"
+                            className=" w-50 mx-3"
                         >
                             <Form.Control type="text" value={firstName} onChange={handleFirstName} />
                         </FloatingLabel>
-                        <FloatingLabel controlId="floatingInput" label="Last Name" className='mb-3 w-50 mx-3'>
+                        <FloatingLabel controlId="floatingInput" label="Last Name" className=' w-50 mx-3'>
                             <Form.Control type="text" value={lastName} onChange={handleLastName} />
                         </FloatingLabel>
 
@@ -603,9 +757,7 @@ const NameDetails = () => {
                             <Form.Control type="telephone" value={number} onChange={handleNumberChange} />
                         </FloatingLabel>
 
-                        <FloatingLabel controlId="floatingInput" label="Job listing that you are searching for" className='mb-3 w-50 mx-3'>
-                            <Form.Control type="text" value={job} onChange={handleJob} />
-                        </FloatingLabel>
+
 
                         <div className="form-floating w-50 mx-3 ">
                             <select className="form-select" id="floatingSelectGrid" value={highestEducation} aria-label="Floating label select example" onChange={handleHighestEducation}>
@@ -617,6 +769,18 @@ const NameDetails = () => {
                             </select>
                             <label for="floatingSelectGrid">Highest Education</label>
                         </div>
+
+
+
+                    </div>
+
+                    <div className='d-flex justify-content-center mb-3'>
+                        <FloatingLabel controlId="floatingInput" label="Job listing that you are searching for" className='mb-3 w-50 mx-3'>
+                            <Form.Control type="text" value={job} onChange={handleJob} />
+                        </FloatingLabel>
+                        <FloatingLabel controlId="floatingInput" label="Brief About Yourself" className='mb-3 w-50 mx-3'>
+                            <Form.Control type="text" as="textarea" value={resumeDesc} onChange={handleResumeDesc} />
+                        </FloatingLabel>
                     </div>
 
 
@@ -1016,12 +1180,12 @@ const NameDetails = () => {
                     </div><div className='d-flex justify-content-around my-5'>
                         <FloatingLabel
                             controlId="floatingInput"
-                            label="CarrerBuilder Email"
+                            label="CareerBuilder Email"
                             className="mb-3 w-50 mx-3"
                         >
                             <Form.Control type="email" value={carrerBuilderEmail} onChange={handleCbMail} />
                         </FloatingLabel>
-                        <FloatingLabel controlId="floatingInput2" label="CarrerBuilder Password" className='mb-3 w-50 mx-3'>
+                        <FloatingLabel controlId="floatingInput2" label="CareerBuilder Password" className='mb-3 w-50 mx-3'>
                             <Form.Control type="password" value={carrerBuilderPass} onChange={handleCbPass} />
                         </FloatingLabel>
                     </div><div className='d-flex justify-content-around my-5'>
@@ -1036,15 +1200,36 @@ const NameDetails = () => {
                             <Form.Control type="password" value={ZipRecruiterPass} onChange={handleZipPass} />
                         </FloatingLabel>
                     </div>
+
+                    <div className="form-floating w-50 mx-auto d-flex justify-content-center">
+
+                        <select className="form-select " id="floatingSelectGrid" value={highestEducation} aria-label="Floating label select example" onChange={handleHighestEducation}>
+                            <option></option>
+                            <option value="Full Time">Tier-1</option>
+                        </select>
+                        <label for="floatingSelectGrid">Service</label>
+                    </div>
                     <div className='d-flex justify-content-around my-3'>
                         <button className='btn btn-secondary' onClick={goBackToGeneral2}>Previous</button>
-                        <button className='btn btn-success' onClick={writeToDatabase}>Submit</button>
+                        <button className='btn btn-success' onClick={goTotier}>Save And Continue</button>
                     </div>
                 </div>
             }
 
+
             {showResume &&
-                <PdfJSX />}
+                <PdfJSX />
+            }
+
+            {final && 
+                <div className='text-center'>
+                    <h1 className='text-info fs-1'>Your Registration is complete.</h1>
+                    <h1 className='text-info'>Job Applications will be sent out starting tomorrow</h1>
+                </div>
+            }
+
+
+
 
         </>
     )

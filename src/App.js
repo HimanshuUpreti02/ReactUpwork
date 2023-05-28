@@ -23,7 +23,6 @@ const App = () => {
         <Route path="/auth" element= {<Authentication/>}/>
         <Route path="/home" element = {<Home/>}/>
         <Route path="/nav" element = {<Navbar home = {false}/>}/>
-        {/* <Route path="/resume" element = {<ResumeTemplate />}/> */}
     </Routes>
   );
 };
