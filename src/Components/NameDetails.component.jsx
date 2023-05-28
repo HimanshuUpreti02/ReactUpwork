@@ -26,6 +26,7 @@ const NameDetails = () => {
 
     const [showResume, setShowResume] = useState(false);
     const [htmlData , setHtmlData]= useState("");
+    const [countries , setCountries] = useState(Countries);
 
 
     const [isBasic, setIsBasic] = useState(true);
@@ -104,8 +105,7 @@ const NameDetails = () => {
     const PdfJSX = () => {
         return (
             <>
-                <h1>{firstName}</h1>
-                <h2>Hello React</h2>
+                
             </>
         )
     }
@@ -554,7 +554,7 @@ const NameDetails = () => {
                         <div className="form-floating w-50 mx-3 ">
                             <select className="form-select" id="floatingSelectGrid" aria-label="Floating label select example" onChange={handleCountrySelect}>
                                 <option>{Country}</option>
-                                {Countries.map((country, index) => {
+                                {countries.map((country, index) => {
                                     return <option className='position-relative' value={country.code} key={index}  >{country.name}</option>
                                 })}
                             </select>
