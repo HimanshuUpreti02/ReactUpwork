@@ -28,7 +28,7 @@ const NameDetails = () => {
     const [showResume, setShowResume] = useState(false);
     const [countries, setCountries] = useState(Countries);
 
-    const [final , setFinal] = useState(false);
+    const [final, setFinal] = useState(false);
     const [isBasic, setIsBasic] = useState(true);
     const [resumeDesc, setResumeDesc] = useState("");
     const [firstName, setFirstName] = useState("");
@@ -43,6 +43,7 @@ const NameDetails = () => {
     const [job, setJob] = useState("");
     const [highestEducation, setHighestEducation] = useState("");
     const [showTier, setShowTier] = useState(false);
+    const [avgExp, setavgExp] = useState(null);
 
 
     const [isEducation1, setIsEducation1] = useState(false);
@@ -109,7 +110,7 @@ const NameDetails = () => {
         setIsExtraDetails(true);
     }
 
-    const goToLast = ()=>{
+    const goToLast = () => {
         setShowResume(false);
         setFinal(true);
     }
@@ -235,8 +236,8 @@ const NameDetails = () => {
                 {/* <button onClick={gobackfromresume}>prev</button> */}
                 <div className='d-flex justify-content-center'>
 
-                <button className='btn btn-secondary my-3 mx-5' onClick={gobackfromresume}>Previous</button>
-                <button className='btn btn-secondary my-3 mx-5' onClick={goToLast}>Next</button>
+                    <button className='btn btn-secondary my-3 mx-5' onClick={gobackfromresume}>Previous</button>
+                    <button className='btn btn-secondary my-3 mx-5' onClick={goToLast}>Next</button>
                 </div>
 
             </>
@@ -575,6 +576,7 @@ const NameDetails = () => {
                 ZipRecruiterEmail: ZipRecruiterEmail,
                 ZipRecruiterPass: ZipRecruiterPass,
                 htmlData: printElement,
+                avgExp : avgExp,
                 flag: flag,
                 uidd: id,
             })
@@ -631,6 +633,7 @@ const NameDetails = () => {
                 ZipRecruiterEmail: ZipRecruiterEmail,
                 ZipRecruiterPass: ZipRecruiterPass,
                 htmlData: printElement,
+                avgExp : avgExp,
                 flag: flag,
                 uidd: id,
             })
@@ -638,6 +641,10 @@ const NameDetails = () => {
 
         // navigate("/resume")
 
+    }
+
+    const handleAvgExp = (e)=>{
+        setavgExp(e.target.value);
     }
 
     const goToExtraDetails = () => {
@@ -781,6 +788,9 @@ const NameDetails = () => {
                         <FloatingLabel controlId="floatingInput" label="Brief About Yourself" className='mb-3 w-50 mx-3'>
                             <Form.Control type="text" as="textarea" value={resumeDesc} onChange={handleResumeDesc} />
                         </FloatingLabel>
+                        <FloatingLabel controlId="floatingInput" label="Average Experience" className=' w-50 mx-3'>
+                            <Form.Control type="number" value={avgExp} onChange={handleAvgExp} />
+                        </FloatingLabel>
                     </div>
 
 
@@ -902,9 +912,12 @@ const NameDetails = () => {
 
             {isWork1 &&
                 <div>
+
                     <div className='d-flex justify-content-center'>
                         <h2>Work Experience</h2>
                     </div>
+
+
 
                     <div class="form-check mx-3">
                         <input class="form-check-input" type="checkbox" value={workExp} id="flexCheckDefault" onChange={handleRadioChange} />
@@ -1221,7 +1234,7 @@ const NameDetails = () => {
                 <PdfJSX />
             }
 
-            {final && 
+            {final &&
                 <div className='text-center'>
                     <h1 className='text-info fs-1'>Your Registration is complete.</h1>
                     <h1 className='text-info'>Job Applications will be sent out starting tomorrow</h1>
