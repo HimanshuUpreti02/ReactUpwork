@@ -237,7 +237,8 @@ const NameDetails = () => {
                 <div className='d-flex justify-content-center'>
 
                     <button className='btn btn-secondary my-3 mx-5' onClick={gobackfromresume}>Previous</button>
-                    <button className='btn btn-secondary my-3 mx-5' onClick={goToLast}>Next</button>
+
+                    <button className='btn btn-secondary my-3 mx-5' onClick={writeToDatabase}>Next</button>
                 </div>
 
             </>
@@ -516,9 +517,11 @@ const NameDetails = () => {
     }
 
     const writeToDatabase = () => {
+        setShowResume(false);
+        setFinal(true);
 
         setIsExtraDetails(false);
-        setShowResume(true);
+        // setShowResume(true);
         const printElement = ReactDOMServer.renderToString(PdfJSX());
 
         if (!auth.currentUser) {
