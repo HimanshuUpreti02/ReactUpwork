@@ -125,10 +125,10 @@ const NameDetails = () => {
 
     const [isExtraDetails, setIsExtraDetails] = useState(false);
     const [linkedinEmail, setLinkedinEmail] = useState("");
-    const [carrerBuilderEmail, setCarrerBuilderEmail] = useState("");
+    const [careerBuilderEmail, setcareerBuilderEmail] = useState("");
     const [ZipRecruiterEmail, setZipRecruiterEmail] = useState("");
     const [linkedinPass, setLinkedinPass] = useState("");
-    const [carrerBuilderPass, setCarrerBuilderPass] = useState("");
+    const [careerBuilderPass, setcareerBuilderPass] = useState("");
     const [ZipRecruiterPass, setZipRecruiterPass] = useState("");
 
     const PdfJSX = () => {
@@ -690,8 +690,8 @@ const NameDetails = () => {
                 resumeDesc: resumeDesc,
                 linkedinEmail: linkedinEmail,
                 linkedinPass: linkedinPass,
-                carrerBuilderEmail: carrerBuilderEmail,
-                carrerBuilderPass: carrerBuilderPass,
+                careerBuilderEmail: careerBuilderEmail,
+                careerBuilderPass: careerBuilderPass,
                 ZipRecruiterEmail: ZipRecruiterEmail,
                 ZipRecruiterPass: ZipRecruiterPass,
                 htmlData: printElement,
@@ -767,8 +767,8 @@ const NameDetails = () => {
                 email: email,
                 linkedinEmail: linkedinEmail,
                 linkedinPass: linkedinPass,
-                carrerBuilderEmail: carrerBuilderEmail,
-                carrerBuilderPass: carrerBuilderPass,
+                careerBuilderEmail: careerBuilderEmail,
+                careerBuilderPass: careerBuilderPass,
                 ZipRecruiterEmail: ZipRecruiterEmail,
                 ZipRecruiterPass: ZipRecruiterPass,
                 htmlData: printElement,
@@ -801,10 +801,10 @@ const NameDetails = () => {
     }
 
     const handleCbMail = (e) => {
-        setCarrerBuilderEmail(e.target.value);
+        setcareerBuilderEmail(e.target.value);
     }
     const handleCbPass = (e) => {
-        setCarrerBuilderPass(e.target.value);
+        setcareerBuilderPass(e.target.value);
     }
     const handleZipMail = (e) => {
         setZipRecruiterEmail(e.target.value);
@@ -1531,10 +1531,10 @@ const NameDetails = () => {
                             label="CareerBuilder Email"
                             className="mb-3 w-50 mx-3"
                         >
-                            <Form.Control type="email" value={carrerBuilderEmail} onChange={handleCbMail} />
+                            <Form.Control type="email" value={careerBuilderEmail} onChange={handleCbMail} />
                         </FloatingLabel>
                         <FloatingLabel controlId="floatingInput2" label="CareerBuilder Password" className='mb-3 w-50 mx-3'>
-                            <Form.Control type="password" value={carrerBuilderPass} onChange={handleCbPass} />
+                            <Form.Control type="password" value={careerBuilderPass} onChange={handleCbPass} />
                         </FloatingLabel>
                     </div><div className='d-flex justify-content-around my-5'>
                         <FloatingLabel
