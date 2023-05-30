@@ -49,6 +49,8 @@ const NameDetails = () => {
     const [isEducation1, setIsEducation1] = useState(false);
     const [isEducation2, setIsEducation2] = useState(false);
     const [Education2, showEducation2] = useState(false);
+    const [isEducation3, setIsEducation3] = useState(false);
+    const [Education3, showEducation3] = useState(false);
     const [university, setUniversity] = useState("");
     const [Degree, setDegree] = useState("");
     const [majors, setMajors] = useState("");
@@ -61,12 +63,22 @@ const NameDetails = () => {
     const [gpa2, setGpa2] = useState(null);
     const [startDate2, setStartDate2] = useState("")
     const [endDate2, setEndDate2] = useState("");
+    const [university3, setUniversity3] = useState("");
+    const [Degree3, setDegree3] = useState("");
+    const [majors3, setMajors3] = useState("");
+    const [gpa3, setGpa3] = useState(null);
+    const [startDate3, setStartDate3] = useState("")
+    const [endDate3, setEndDate3] = useState("");
     const [save, setIsSave] = useState(true);
 
     const [workExp, setWorkExp] = useState(true);
     const [isWork1, setisWork1] = useState(false);
     const [isWork2, setIsWork2] = useState(false);
     const [showWork2, setShowWork2] = useState(false);
+    const [isWork3, setIsWork3] = useState(false);
+    const [showWork3, setShowWork3] = useState(false);
+    const [isWork4, setIsWork4] = useState(false);
+    const [showWork4, setShowWork4] = useState(false);
     const [company1, setCompany1] = useState("");
     const [location1, setLocation1] = useState("");
     const [position1, setPositon1] = useState("");
@@ -81,7 +93,21 @@ const NameDetails = () => {
     const [workStartDate2, setWorkStartDate2] = useState("")
     const [workEndDate1, setWorkEndDate1] = useState("")
     const [workEndDate2, setWorkEndDate2] = useState("")
-
+    const [company3, setCompany3] = useState("");
+    const [location3, setLocation3] = useState("");
+    const [position3, setPositon3] = useState("");
+    const [experience3, setExperience3] = useState("");
+    const [description3, setDescription3] = useState("");
+    const [workStartDate3, setWorkStartDate3] = useState("")
+    const [workEndDate3 , setWorkEndDate3]  = useState("");
+    const [company4, setCompany4] = useState("");
+    const [location4, setLocation4] = useState("");
+    const [position4, setPositon4] = useState("");
+    const [experience4, setExperience4] = useState("");
+    const [description4, setDescription4] = useState("");
+    const [workStartDate4, setWorkStartDate4] = useState("")
+    const [workEndDate4 , setWorkEndDate4]  = useState("");
+    
 
     const [isGeneral, setIsGeneral] = useState(false);
     const [Auth, setAuth] = useState("");
@@ -104,16 +130,6 @@ const NameDetails = () => {
     const [linkedinPass, setLinkedinPass] = useState("");
     const [carrerBuilderPass, setCarrerBuilderPass] = useState("");
     const [ZipRecruiterPass, setZipRecruiterPass] = useState("");
-
-    const gobackfromresume = () => {
-        setShowResume(false);
-        setIsExtraDetails(true);
-    }
-
-    const goToLast = () => {
-        setShowResume(false);
-        setFinal(true);
-    }
 
     const PdfJSX = () => {
         return (
@@ -167,7 +183,7 @@ const NameDetails = () => {
                                         <div class="desc">{gpa}</div>
                                     </div>
                                 </div>
-                                {showEducation2 && <div class="section__list-item">
+                                {Education2 && <div class="section__list-item">
                                     <div class="left">
                                         <div class="name">{university2}</div>
                                         <div class="addr">{Degree2} - {majors2}</div>
@@ -179,13 +195,25 @@ const NameDetails = () => {
                                     </div>
                                 </div>}
 
+                                {Education3 && <div class="section__list-item">
+                                    <div class="left">
+                                        <div class="name">{university3}</div>
+                                        <div class="addr">{Degree3} - {majors3}</div>
+                                        <div class="duration">{startDate3} - {endDate3}</div>
+                                    </div>
+                                    <div class="right">
+                                        <div class="name">GPA</div>
+                                        <div class="desc">{gpa3}</div>
+                                    </div>
+                                </div>}
+
                             </div>
 
                         </div>
                         <div class="section">
-                            <div class="section__title">Experience</div>
+                            {workExp&&<div class="section__title">Experience</div>}
                             <div class="section__list">
-                                <div class="section__list-item">
+                                {workExp && <div class="section__list-item">
                                     <div class="left">
                                         <div class="name">{company1} - {position1}</div>
                                         <div class="addr">{location1}</div>
@@ -196,16 +224,39 @@ const NameDetails = () => {
                                         <div class="duration">{workStartDate1} - {workEndDate1}</div>
 
                                     </div>
-                                </div>
+                                </div>}
                                 {showWork2 && <div class="section__list-item">
                                     <div class="left">
-                                        <div class="name">Akount</div>
-                                        <div class="addr">San Monica, CA</div>
-                                        <div class="duration">Jan 2011 - Feb 2015</div>
+                                        <div class="name">{company2} - {position2}</div>
+                                        <div class="addr">{location2}</div>
+                                        <div class="duration">{description2}</div>
                                     </div>
                                     <div class="right">
-                                        <div class="name">Fr developer</div>
-                                        <div class="desc">did This and that</div>
+                                        <div >DURATION</div>
+                                        <div class="duration" > {workStartDate2} - {workEndDate2}</div>
+                                    </div>
+                                </div>}
+
+                                {showWork3 && <div class="section__list-item">
+                                    <div class="left">
+                                        <div class="name">{company3} - {position3}</div>
+                                        <div class="addr">{location3}</div>
+                                        <div class="duration">{description3}</div>
+                                    </div>
+                                    <div class="right">
+                                        <div >DURATION</div>
+                                        <div class="duration" > {workStartDate3} - {workEndDate3}</div>
+                                    </div>
+                                </div>}
+                                {showWork4 && <div class="section__list-item">
+                                    <div class="left">
+                                        <div class="name">{company4} - {position4}</div>
+                                        <div class="addr">{location4}</div>
+                                        <div class="duration">{description4}</div>
+                                    </div>
+                                    <div class="right">
+                                        <div >DURATION</div>
+                                        <div class="duration" > {workStartDate4} - {workEndDate4}</div>
                                     </div>
                                 </div>}
 
@@ -234,17 +285,22 @@ const NameDetails = () => {
 
                 </div>
                 {/* <button onClick={gobackfromresume}>prev</button> */}
-                <div className='d-flex justify-content-center'>
-
-                    <button className='btn btn-secondary my-3 mx-5' onClick={gobackfromresume}>Previous</button>
-
-                    <button className='btn btn-secondary my-3 mx-5' onClick={writeToDatabase}>Next</button>
-                </div>
 
             </>
 
         )
     }
+
+    const gobackfromresume = () => {
+        setShowResume(false);
+        setIsExtraDetails(true);
+    }
+
+    const goToLast = () => {
+        setShowResume(false);
+        setFinal(true);
+    }
+
 
 
     console.log(isEducation2)
@@ -254,6 +310,16 @@ const NameDetails = () => {
 
     const handleLastName = (e) => {
         setLastName(e.target.value);
+    }
+
+    const AddWorkThree = () => {
+        setIsWork3(true);
+        setShowWork3(true);
+    }
+
+    const addWork4 = () => {
+        setIsWork4(true);
+        setShowWork4(true);
     }
 
     const handleCountrySelect = (e) => {
@@ -342,16 +408,28 @@ const NameDetails = () => {
             showEducation2(true);
             setIsEducation2(false);
         }
+
+        if (isEducation3) {
+            showEducation3(true);
+            setIsEducation3(false);
+        }
         setisWork1(true);
         if (showWork2) setIsWork2(true);
+        if (showWork3) setIsWork3(true);
+        if (showWork4) setIsWork4(true);
     }
 
     const goBackToEducation = () => {
         setisWork1(false);
         setIsWork2(false);
+        setIsWork3(false);
+        setIsWork4(false);
         setIsEducation1(true);
         if (Education2) {
             setIsEducation2(true);
+        }
+        if (Education3) {
+            setIsEducation3(true);
         }
     }
 
@@ -372,6 +450,12 @@ const NameDetails = () => {
 
     const removeWork = () => {
         setIsWork2(false);
+        setShowWork2(false);
+    }
+
+    const removeWork3 = () => {
+        setIsWork3(false);
+        setShowWork3(false);
     }
 
     const handleCompanyOneChange = (e) => {
@@ -420,6 +504,12 @@ const NameDetails = () => {
         if (showWork2) {
             setIsWork2(false);
         }
+        if (showWork3) {
+            setIsWork3(false);
+        }
+        if (showWork4) {
+            setIsWork4(false);
+        }
         setIsGeneral(true);
     }
 
@@ -439,6 +529,12 @@ const NameDetails = () => {
         setisWork1(true);
         if (showWork2) {
             setIsWork2(true);
+        }
+        if (showWork3) {
+            setIsWork3(true);
+        }
+        if (showWork4) {
+            setIsWork4(true);
         }
     }
 
@@ -547,6 +643,12 @@ const NameDetails = () => {
                 gpa2: gpa2,
                 startDate2: startDate2.toString(),
                 endDate2: endDate2.toString(),
+                university3: university3,
+                Degree3: Degree3,
+                majors3: majors3,
+                gpa3: gpa3,
+                startDate3: startDate3.toString(),
+                endDate3: endDate3.toString(),
                 workExperience: workExp,
                 company1: company1,
                 location1: location1,
@@ -562,6 +664,20 @@ const NameDetails = () => {
                 workStartDate2: workStartDate2.toString(),
                 workEndDate2: workEndDate2.toString(),
                 description2: description2,
+                company3: company3,
+                location3: location3,
+                position3: position3,
+                experience3: experience3,
+                workStartDate3: workStartDate3.toString(),
+                workEndDate3: workEndDate3.toString(),
+                description3: description3,
+                company4: company4,
+                location4: location4,
+                position4: position4,
+                experience4: experience4,
+                workStartDate4: workStartDate4.toString(),
+                workEndDate4: workEndDate4.toString(),
+                description4: description4,
                 auth: Auth,
                 visa: Visa,
                 ethnicity: ethnicity,
@@ -579,7 +695,7 @@ const NameDetails = () => {
                 ZipRecruiterEmail: ZipRecruiterEmail,
                 ZipRecruiterPass: ZipRecruiterPass,
                 htmlData: printElement,
-                avgExp : avgExp,
+                avgExp: avgExp,
                 flag: flag,
                 uidd: id,
             })
@@ -605,6 +721,12 @@ const NameDetails = () => {
                 resumeDesc: resumeDesc,
                 startDate2: startDate2.toString(),
                 endDate2: endDate2.toString(),
+                university3: university3,
+                Degree3: Degree3,
+                majors3: majors3,
+                gpa3: gpa3,
+                startDate3: startDate3.toString(),
+                endDate3: endDate3.toString(),
                 workExperience: workExp,
                 company1: company1,
                 location1: location1,
@@ -620,6 +742,20 @@ const NameDetails = () => {
                 workStartDate2: workStartDate2.toString(),
                 workEndDate2: workEndDate2.toString(),
                 description2: description2,
+                company3: company3,
+                location3: location3,
+                position3: position3,
+                experience3: experience3,
+                workStartDate3: workStartDate3.toString(),
+                workEndDate3: workEndDate3.toString(),
+                description3: description3,
+                company4: company4,
+                location4: location4,
+                position4: position4,
+                experience4: experience4,
+                workStartDate4: workStartDate4.toString(),
+                workEndDate4: workEndDate4.toString(),
+                description4: description4,
                 auth: Auth,
                 visa: Visa,
                 ethnicity: ethnicity,
@@ -636,7 +772,7 @@ const NameDetails = () => {
                 ZipRecruiterEmail: ZipRecruiterEmail,
                 ZipRecruiterPass: ZipRecruiterPass,
                 htmlData: printElement,
-                avgExp : avgExp,
+                avgExp: avgExp,
                 flag: flag,
                 uidd: id,
             })
@@ -646,7 +782,7 @@ const NameDetails = () => {
 
     }
 
-    const handleAvgExp = (e)=>{
+    const handleAvgExp = (e) => {
         setavgExp(e.target.value);
     }
 
@@ -694,6 +830,21 @@ const NameDetails = () => {
 
     const goBackToExtra = () => {
         setIsExtraDetails(true);
+    }
+
+    const addThirdEducation = () => {
+        setIsEducation3(true);
+        showEducation3(true);
+    }
+
+    const removeThirdEducation = () => {
+        setIsEducation3(false);
+        showEducation3(false);
+    }
+
+    const removeFourthWork = () => {
+        setIsWork4(false);
+        setShowWork4(false)
     }
 
 
@@ -860,8 +1011,10 @@ const NameDetails = () => {
                     <div className='d-flex my-3 mx-3 justify-content-between'>
 
                         <h3 className='mx-3'>Education 2</h3>
-                        <div className='text-center'>
-                            <button className='btn btn-info mx-3' onClick={handleRemoveEducation}>-</button>
+                        <div className='d-flex text-center'>
+                            <button className='btn btn-info mx-3' onClick={addThirdEducation}>+</button>
+
+                            <button className='btn btn-secondary mx-3' onClick={handleRemoveEducation}>-</button>
                         </div>
                     </div>
 
@@ -888,16 +1041,16 @@ const NameDetails = () => {
                         >
                             <Form.Control type="text" value={majors2} onChange={handleMajors1} />
                         </FloatingLabel>
-                        <FloatingLabel controlId="floatingInput" label="CGPA" className='mb-3 w-50 mx-3'>
+                        <FloatingLabel controlId="floatingInput" label="GPA" className='mb-3 w-50 mx-3'>
                             <Form.Control type="number" value={gpa2} onChange={handleGpa1} />
                         </FloatingLabel>
 
                     </div>
                     <div className='d-flex justify-content-around my-2'>
                         <FloatingLabel controlId="floatingInput" label="Start Date" className='mb-3 w-50 mx-3' onChange={handleStartDateTwo}>
-                            <Form.Control type="date" value={startDate2} />
+                            <Form.Control type="date" value={startDate3} />
                         </FloatingLabel><FloatingLabel controlId="floatingInput" label="End Date" className='mb-3 w-50 mx-3' onChange={handleEndDateTwo}>
-                            <Form.Control type="date" value={endDate2} />
+                            <Form.Control type="date" value={endDate3} />
                         </FloatingLabel>
                     </div>
 
@@ -906,7 +1059,58 @@ const NameDetails = () => {
                 </div>
             }
 
-            {(isEducation1 || isEducation2) && <div className='d-flex justify-content-around my-3'>
+            {isEducation3 &&
+                <div >
+                    <div className='d-flex my-3 mx-3 justify-content-between'>
+
+                        <h3 className='mx-3'>Education 3</h3>
+                        <div className='text-center'>
+                            <button className='btn btn-info mx-3' onClick={removeThirdEducation}>-</button>
+                        </div>
+                    </div>
+
+                    <div className='d-flex justify-content-center'>
+                    </div>
+                    <div className='d-flex justify-content-around my-2'>
+                        <FloatingLabel
+                            controlId="floatingInput"
+                            label="Institute"
+                            className="mb-3 w-50 mx-3"
+                        >
+                            <Form.Control type="text" value={university3} onChange={(e) => setUniversity3(e.target.value)} />
+                        </FloatingLabel>
+                        <FloatingLabel controlId="floatingInput" label="Degree" className='mb-3 w-50 mx-3'>
+                            <Form.Control type="text" value={Degree3} onChange={(e) => setDegree3(e.target.value)} />
+                        </FloatingLabel>
+                    </div>
+
+                    <div className='d-flex justify-content-around my-2'>
+                        <FloatingLabel
+                            controlId="floatingInput"
+                            label="Majors"
+                            className="mb-3 w-50 mx-3"
+                        >
+                            <Form.Control type="text" value={majors3} onChange={(e) => setMajors3(e.target.value)} />
+                        </FloatingLabel>
+                        <FloatingLabel controlId="floatingInput" label="GPA" className='mb-3 w-50 mx-3'>
+                            <Form.Control type="number" value={gpa3} onChange={(e) => setGpa3(e.target.value)} />
+                        </FloatingLabel>
+
+                    </div>
+                    <div className='d-flex justify-content-around my-2'>
+                        <FloatingLabel controlId="floatingInput" label="Start Date" className='mb-3 w-50 mx-3' onChange={(e) => setStartDate3(e.target.value)}>
+                            <Form.Control type="date" value={startDate3} />
+                        </FloatingLabel><FloatingLabel controlId="floatingInput" label="End Date" className='mb-3 w-50 mx-3' onChange={(e) => setEndDate3(e.target.value)}>
+                            <Form.Control type="date" value={endDate3} />
+                        </FloatingLabel>
+                    </div>
+
+
+
+                </div>
+            }
+
+            {(isEducation1 || isEducation2 || isEducation3) && <div className='d-flex justify-content-around my-3'>
                 <button className='btn btn-secondary' onClick={goBackToBasic}>Previous</button>
                 <button className=' btn btn-success' onClick={goToWork} >Save And Continue</button>
             </div>}
@@ -933,7 +1137,8 @@ const NameDetails = () => {
                     <div className='d-flex justify-content-between mx-3'>
                         <h2 className='mx-3'>Work Experience 1</h2>
                         <div>
-                            <button className='btn btn-info mx-3' onClick={addWork}>+</button>
+                            <button className='btn btn-secondary mx-3' onClick={addWork}>+</button>
+                            <button className='btn btn-secondary mx-3' >-</button>
                         </div>
                     </div>
                     <div className='d-flex justify-content-center'>
@@ -995,6 +1200,7 @@ const NameDetails = () => {
                     <div className='d-flex justify-content-between mx-3'>
                         <h2 className='mx-3'>Work Experience 2</h2>
                         <div>
+                            <button className='btn btn-secondary mx-3' onClick={AddWorkThree}>+</button>
                             <button className='btn btn-secondary mx-3' onClick={removeWork}>-</button>
                         </div>
                     </div>
@@ -1050,6 +1256,132 @@ const NameDetails = () => {
 
                 </div>
             }
+
+
+            {isWork3 &&
+                <div>
+                    <div className='d-flex justify-content-between mx-3'>
+                        <h2 className='mx-3'>Work Experience 3</h2>
+                        <div>
+                            <button className='btn btn-secondary mx-3' onClick={addWork4}>+</button>
+                            <button className='btn btn-secondary mx-3' onClick={removeWork3}>-</button>
+                        </div>
+                    </div>
+                    <div className='d-flex justify-content-center'>
+                    </div>
+                    <div className='d-flex justify-content-around my-2'>
+                        <FloatingLabel
+                            controlId="floatingInput"
+                            label="Company"
+                            className="mb-3 w-50 mx-3"
+                        >
+                            <Form.Control type="text" value={company3} onChange={(e)=>setCompany3(e.target.value)} />
+                        </FloatingLabel>
+                        <FloatingLabel controlId="floatingInput" label="Location" className='mb-3 w-50 mx-3'>
+                            <Form.Control type="text" value={location3} onChange={(e)=>setLocation3(e.target.value)} />
+                        </FloatingLabel>
+                    </div>
+
+                    <div className='d-flex justify-content-around my-2'>
+                        <FloatingLabel
+                            controlId="floatingInput"
+                            label="Position"
+                            className="mb-3 w-50 mx-3"
+                        >
+                            <Form.Control type="text" value={position3} onChange={(e)=>setPositon3(e.target.value)} />
+                        </FloatingLabel>
+
+                        <div className="form-floating w-50 mx-3 ">
+                            <select className="form-select" id="floatingSelectGrid" value={experience3} onChange={(e)=>setExperience3(e.target.value)} aria-label="Floating label select example">
+                                <option></option>
+                                <option value="Full Time">Full Time</option>
+                                <option value="Part Time">Part Time</option>
+                                <option value="Contract">Contract</option>
+                            </select>
+                            <label for="floatingSelectGrid">Experience Type</label>
+                        </div>
+
+                    </div>
+                    <div className='d-flex justify-content-around my-2'>
+                        <FloatingLabel controlId="floatingInput" label="Start Date" className='mb-3 w-50 mx-3' onChange={(e)=>setWorkStartDate3(e.target.value)}>
+                            <Form.Control type="date" value={workStartDate3} />
+                        </FloatingLabel><FloatingLabel controlId="floatingInput" label="End Date" className='mb-3 w-50 mx-3' onChange={(e)=>setWorkEndDate3(e.target.value)}>
+                            <Form.Control type="date" value={workEndDate3} />
+                        </FloatingLabel>
+                    </div>
+
+                    <div className='d-flex justify-content-center mx-4'>
+                        <FloatingLabel controlId="floatingInput" label="Description" className='mb-3 w-50 mx-3'>
+                            <Form.Control type="text" value={description3} onChange={(e)=>setDescription3(e.target.value)} as="textarea" rows={3} />
+                        </FloatingLabel>
+                    </div>
+
+
+                </div>
+            }
+
+            {isWork4 &&
+                <div>
+                    <div className='d-flex justify-content-between mx-3'>
+                        <h2 className='mx-3'>Work Experience 4</h2>
+                        <div>
+                            <button className='btn btn-secondary mx-3'>+</button>
+                            <button className='btn btn-secondary mx-3' onClick={removeFourthWork}>-</button>
+                        </div>
+                    </div>
+                    <div className='d-flex justify-content-center'>
+                    </div>
+                    <div className='d-flex justify-content-around my-2'>
+                        <FloatingLabel
+                            controlId="floatingInput"
+                            label="Company"
+                            className="mb-3 w-50 mx-3"
+                        >
+                            <Form.Control type="text" value={company4} onChange={(e)=>setCompany4(e.target.value)} />
+                        </FloatingLabel>
+                        <FloatingLabel controlId="floatingInput" label="Location" className='mb-3 w-50 mx-3'>
+                            <Form.Control type="text" value={location4} onChange={(e)=>setLocation4(e.target.value)} />
+                        </FloatingLabel>
+                    </div>
+
+                    <div className='d-flex justify-content-around my-2'>
+                        <FloatingLabel
+                            controlId="floatingInput"
+                            label="Position"
+                            className="mb-3 w-50 mx-3"
+                        >
+                            <Form.Control type="text" value={position4} onChange={(e)=>setPositon4(e.target.value)} />
+                        </FloatingLabel>
+
+                        <div className="form-floating w-50 mx-3 ">
+                            <select className="form-select" id="floatingSelectGrid" value={experience4} onChange={(e)=>setExperience4(e.target.value)} aria-label="Floating label select example">
+                                <option></option>
+                                <option value="Full Time">Full Time</option>
+                                <option value="Part Time">Part Time</option>
+                                <option value="Contract">Contract</option>
+                            </select>
+                            <label for="floatingSelectGrid">Experience Type</label>
+                        </div>
+
+                    </div>
+                    <div className='d-flex justify-content-around my-2'>
+                        <FloatingLabel controlId="floatingInput" label="Start Date" className='mb-3 w-50 mx-3' onChange={(e)=>setWorkStartDate4(e.target.value)}>
+                            <Form.Control type="date" value={workStartDate4} />
+                        </FloatingLabel><FloatingLabel controlId="floatingInput" label="End Date" className='mb-3 w-50 mx-3' onChange={(e)=>setWorkEndDate4(e.target.value)}>
+                            <Form.Control type="date" value={workEndDate4} />
+                        </FloatingLabel>
+                    </div>
+
+                    <div className='d-flex justify-content-center mx-4'>
+                        <FloatingLabel controlId="floatingInput" label="Description" className='mb-3 w-50 mx-3'>
+                            <Form.Control type="text" value={description4} onChange={(e)=>setDescription4(e.target.value)} as="textarea" rows={3} />
+                        </FloatingLabel>
+                    </div>
+
+
+                </div>
+            }
+
 
             {(isWork1 || isWork2) && <div className='d-flex justify-content-around my-3'>
                 <button className='btn btn-secondary' onClick={goBackToEducation}>Previous</button>
@@ -1237,12 +1569,23 @@ const NameDetails = () => {
                 <PdfJSX />
             }
 
+            {showResume &&
+
+                <div className='d-flex justify-content-center'>
+
+                    <button className='btn btn-secondary my-3 mx-5' onClick={gobackfromresume}>Previous</button>
+
+                    <button className='btn btn-secondary my-3 mx-5' onClick={writeToDatabase}>Next</button>
+                </div>
+            }
+
             {final &&
                 <div className='text-center'>
                     <h1 className='text-info fs-1'>Your Registration is complete.</h1>
                     <h1 className='text-info'>Job Applications will be sent out starting tomorrow</h1>
                 </div>
             }
+
 
 
 
