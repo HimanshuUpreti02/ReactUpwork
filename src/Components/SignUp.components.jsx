@@ -52,7 +52,7 @@ const SignUp = () => {
   const signInWithGoogle = async () => {
     const { user } = await signInWithGooglePopup();
     await createUserDocFromAuth(user , {});
-    navigate("/home")
+    navigate("/portal")
   };
   const handleChange = (event) => {
     const { name, value } = event.target;

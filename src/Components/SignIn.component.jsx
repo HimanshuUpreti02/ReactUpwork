@@ -29,7 +29,7 @@ const SignIn = () => {
     try {
       await signInAuthUserWithEmailAndPassword(email, password);
       resetFormFields();
-      Navigate("/home")
+      Navigate("/portal")
     } catch (error) {
       console.log(error);
     }
